@@ -16,6 +16,7 @@ if (models === undefined) {
 
 models.exampleModel = function () {
   return {
-    name: "Unknown Name",
+    name: "My First Name",
+    motto: "...Super Awesome Motto..."
   };
 };

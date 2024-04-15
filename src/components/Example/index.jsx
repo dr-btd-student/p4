@@ -23,6 +23,7 @@ import '../../../node_modules/prismjs/themes/prism.css';
 	const [counter, setCounter] = useState(0);
 	const [inputValue, setInputValue] = useState('');
 	const [buttonWasClicked, setButtonWasClicked] = useState('');
+  const [motto, setMotto] = useState("...Super Motto..."); /* Implemented for Problem 1 */
 
   // React components have several "lifecycle functions"
   // https://reactjs.org/docs/react-component.html
@@ -81,8 +82,10 @@ useEffect(() => {
       <div className="container Example">
         <h1>Project 4 React.js Example</h1>
 
+        {/* Problem 1 Implemented here */}
         <div className="motto-update">
-          {/* Your problem #1 motto displaying and updating widget goes here */}
+          <h2>My name is: {name} and my motto is: {motto}</h2>
+          <input type="text" value={motto} onChange={(e) => setMotto(e.target.value)} />
         </div>
 
         <p>
@@ -326,9 +329,9 @@ useEffect(() => {
           value of the DOM element so its value
           can be access like <code>{'{inputValue}'}</code> which
           returns &nbsp;&ldquo; {inputValue}  &rdquo;. Note we can not directly
-          call <code>this.handleChange</code> since it is a method function of an object
+          call <code>handleChange()</code> since it is a method function of an object
           that is not available to the DOM. To handle this we create a new
-          function <code>this.handleChangeBound</code> that can call the method and use it here.
+          function <code>handleChangeBound()</code> that can call the method and use it here.
         </p>
         <p>
           If we want to pass arguments to event handling functions we can use inlined

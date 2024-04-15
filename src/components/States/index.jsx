@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './States.css';
 
 /**
@@ -7,10 +7,24 @@ import './States.css';
  * window.models.states.
  */
 const States = () => {
-    return (
-      <div>
-        Replace this with the code for Project 4, Problem 2
-      </div>
-    );
+	const [search, setSearch] = useState("");
+
+
+	return (
+	  <div className='states-container'>
+		<h1>States:</h1>
+		<p>Search state: </p>
+
+		<input className='states-input' type="text" id="search" placeholder='Search for states here' name="search" value={search} onChange={(e) => setSearch(e.target.value)} />
+		
+		<ul className='states-list'>
+		  {window.models.states()
+			.filter(searchState => searchState.toLowerCase().includes(search.toLowerCase()))
+			.map((state, index) => (
+			  <li className='states-item' key={index}>{state}</li>
+			))}
+		</ul>
+	  </div>
+	);
   };
 export default States;

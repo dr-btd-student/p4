@@ -1,0 +1,33 @@
+/*
+CSS for the Project 4, Problem 2 States component
+
+Since CSS uses a global name space for classes we should use names starting with
+states- here.
+*/
+
+
+.states-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+	width: 100%;
+	height: 100%;
+}
+
+.states-list {
+	column-count: 3;
+	margin: auto;
+	padding-top: 20px;
+	width: 500px;
+	height: 100vh;
+}
+
+.states-input {
+	margin: 50px;
+}
+
+.states-item {
+	margin: 10px;
+}

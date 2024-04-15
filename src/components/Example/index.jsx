@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Example.css';
 
 /*
@@ -73,6 +73,10 @@ useEffect(() => {
     return retVal;
   };
 
+  const handleChange = (value) => {
+    setInputValue(value);
+  };
+
     return (
       <div className="container Example">
         <h1>Project 4 React.js Example</h1>
@@ -84,7 +88,7 @@ useEffect(() => {
         <p>
           This view is an example of a
           &nbsp;
-          <a href="https://reactjs.org/docs/react-component.html" target="_blank" rel="noopener noreferrer">
+          <a href="https://react.dev/learn/your-first-component" target="_blank" rel="noopener noreferrer">
             React.js Component
           </a>
           &nbsp;
@@ -97,13 +101,13 @@ useEffect(() => {
         </p>
         <p>
           It is actually written in a language named &nbsp;
-          <a href="https://reactjs.org/docs/introducing-jsx.html" target="_blank" rel="noopener noreferrer">
+          <a href="https://react.dev/learn/writing-markup-with-jsx#jsx-putting-markup-into-javascript" target="_blank" rel="noopener noreferrer">
             JSX
           </a>
           &nbsp; that is run as a preprocessor to the HTML-like
           language to JavaScript. The generated JavaScipt is limited to calls
           to the React.js &nbsp;
-          <a href="https://reactjs.org/docs/react-api.html#createelement" target="_blank" rel="noopener noreferrer">
+          <a href="https://react.dev/reference/react/createElement" target="_blank" rel="noopener noreferrer">
             createElement
           </a>
           &nbsp; function which allow us to write something that looks
@@ -139,7 +143,7 @@ useEffect(() => {
         <pre className="example-code">
           <code className="language-jsx">
             {
-`<p>My name is "{name}".</p>`
+    `<p>My name is "{name}".</p>`
             }
           </code>
         </pre>
@@ -147,7 +151,7 @@ useEffect(() => {
           should render as:
         </p>
         <p className="example-output">
-          My name is &ldquo; {this.state.name} &rdquo;.
+          My name is &ldquo; {name} &rdquo;.
         </p>
 
         <h3>
@@ -157,11 +161,11 @@ useEffect(() => {
         <p>
           React automatically propagates any changes to JavaScript state to the
           JSX templates. For example
-          the following code <code>({'{this.state.counter}'})</code> displays
+          the following code <code>({'{counter}'})</code> displays
           the state.counter property of the Example component.
           The component sets a timer
           that increments the counter every 2 seconds. The value of the
-          counter can be seen changing here: {this.state.counter}.
+          counter can be seen changing here: {counter}.
         </p>
 
         <h3>Control flow</h3>
@@ -181,36 +185,36 @@ useEffect(() => {
         <pre className="example-code">
           <code className="language-jsx">
             {
-`function outOfBandJSX(option) {
-  var optionJSX;
-  if (option) {
-    optionJSX = <div>Option was True</div>;
-  } else {
-    optionJSX  = <div>Option was False</div>;
-  }
-  var listItems = [];
-  for (var i = 0; i < 3; i++) {
-    listItems[i] = <li key={i}>List Item {i}</li>;
-  }
-  var retVal =
-    <div>
-      {optionJSX}
-      <ul>
-        {listItems}
-      </ul>
-    </div>;
+    `function outOfBandJSX(option) {
+      var optionJSX;
+      if (option) {
+        optionJSX = <div>Option was True</div>;
+      } else {
+        optionJSX  = <div>Option was False</div>;
+      }
+      var listItems = [];
+      for (var i = 0; i < 3; i++) {
+        listItems[i] = <li key={i}>List Item {i}</li>;
+      }
+      var retVal =
+        <div>
+          {optionJSX}
+          <ul>
+            {listItems}
+          </ul>
+        </div>;
 
-  return retVal;
-}`
+      return retVal;
+    }`
             }
           </code>
         </pre>
         <p>
             Calling this function from a template
-            (i.e. <code>{'{this.outOfBandJSX(true)}'}</code>)
+            (i.e. <code>{'{outOfBandJSX(true)}'}</code>)
             would be expand to:
         </p>
-        <div className="example-output">{this.outOfBandJSX(true)}</div>
+        <div className="example-output">{outOfBandJSX(true)}</div>
         <p>
             Another way of accomplishing this is embedding the operations inside
             of curly braces. Although arbitrary JavaScript can appear inside
@@ -227,12 +231,12 @@ useEffect(() => {
         <pre className="example-code">
           <code className="language-jsx">
             {
-`<div>
-  option ? <div>Option was True</div> : <div>Option was False</div> }
-  <ul>
-    {[0,1,2].map((i) =>  <li key={i}>List Item {i}</li>)}
-  </ul>
-</div>`
+    `<div>
+      option ? <div>Option was True</div> : <div>Option was False</div> }
+      <ul>
+        {[0,1,2].map((i) =>  <li key={i}>List Item {i}</li>)}
+      </ul>
+    </div>`
             }
           </code>
         </pre>
@@ -245,18 +249,18 @@ useEffect(() => {
         <pre className="example-code">
           <code className="language-jsx">
             {
-`<div>
-  <p>A paragraph will appear between this paragraph</p>
-  {
-    this.state.inputValue && (
-      <p>This text will appear when this.state.inputValue is truthy.
-        this.state.inputValue === {this.state.inputValue}
-      </p>
-    )
-  }
-  <p>... and this one when some characters are typed into the input box below.</p>
-</div>
-`
+    `<div>
+      <p>A paragraph will appear between this paragraph</p>
+      {
+        inputValue && (
+          <p>This text will appear when inputValue is truthy.
+            inputValue === {inputValue}
+          </p>
+        )
+      }
+      <p>... and this one when some characters are typed into the input box below.</p>
+    </div>
+    `
             }
           </code>
         </pre>
@@ -268,11 +272,11 @@ useEffect(() => {
             A paragraph will appear between this paragraph
           </p>
           {
-            this.state.inputValue
+            inputValue
             && (
               <p>
-                This text will appear when this.state.inputValue is truthy.
-                this.state.inputValue === {this.state.inputValue}
+                This text will appear when inputValue is truthy.
+                inputValue === {inputValue}
               </p>
             )
           }
@@ -288,8 +292,8 @@ useEffect(() => {
         <pre className="example-code">
           <code className="language-jsx">
             {
-`<label htmlFor="inId">Input Field: </label>
-<input type="text" value={this.state.inputValue} onChange={this.handleChangeBound} />`
+    `<label htmlFor="inId">Input Field: </label>
+    <input type="text" value={inputValue} onChange={handleChangeBound} />`
             }
           </code>
         </pre>
@@ -315,13 +319,13 @@ useEffect(() => {
         <div className="example-output">
           <label htmlFor="inId">Input Field:
           </label>
-          <input id="inId" type="text" value={this.state.inputValue} onChange={this.handleChangeBound} />
+          <input id="inId" type="text" value={inputValue} onChange={(e) => handleChange(e.target.value)} />
         </div>
         <p>
-          The handleChangeBound function updates this.state.inputValue with the
+          The handleChange function updates inputValue with the
           value of the DOM element so its value
-          can be access like <code>{'{this.state.inputValue}'}</code> which
-          returns &nbsp;&ldquo; {this.state.inputValue}  &rdquo;. Note we can not directly
+          can be access like <code>{'{inputValue}'}</code> which
+          returns &nbsp;&ldquo; {inputValue}  &rdquo;. Note we can not directly
           call <code>this.handleChange</code> since it is a method function of an object
           that is not available to the DOM. To handle this we create a new
           function <code>this.handleChangeBound</code> that can call the method and use it here.
@@ -333,11 +337,11 @@ useEffect(() => {
         <pre className="example-code">
           <code className="language-jsx">
             {
-`<div className="example-output">
-  <p>Test button clicks.
-    {
-      this.state.buttonWasClicked &&
-      <span>Last button clicked was: {this.state.buttonWasClicked}</span>
+    `<div className="example-output">
+      <p>Test button clicks.
+        {
+      buttonWasClicked &&
+      <span>Last button clicked was: {buttonWasClicked}</span>
     }
   </p>
   <button
@@ -363,14 +367,14 @@ useEffect(() => {
         <div className="example-output">
           <p>
             Test button clicks. {
-              this.state.buttonWasClicked
-              && <span>Last button clicked was: {this.state.buttonWasClicked}</span>
+              buttonWasClicked
+              && <span>Last button clicked was: {buttonWasClicked}</span>
             }
           </p>
-          <button type="button" onClick={e => this.handleButtonClick('one', e)}>
+          <button type="button" onClick={e => handleButtonClick('one', e)}>
             Call handleButtonClick function with one
           </button>
-          <button type="button" onClick={e => this.handleButtonClick('two', e)}>
+          <button type="button" onClick={e => handleButtonClick('two', e)}>
             Call handleButtonClick function with two
           </button>
         </div>

@@ -14,7 +14,6 @@ function App() {
     <>
       <h1>Hello World!</h1>
       <Example />
-      <States />
     </>
   );
 }

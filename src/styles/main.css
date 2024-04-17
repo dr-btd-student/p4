@@ -1,0 +1,43 @@
+/* This is a CSS style sheet for rules that should be applied over the entire
+   application.  We are not using the name prefix for these rules. */
+
+/* class="container" - Sets some margins around the element so it is spaced from
+                       the top, bottom, and sides of the window. */
+
+.container {
+  padding: 40px 10px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menuItem {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  display: inline-block;
+  text-align: center;
+}
+
+.menuText {
+  font-size: 20px;
+  font-weight: bold;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+
+}
+
+.menuText:hover {
+  background-color: cyan;
+
+}
+
+.menuContainer {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

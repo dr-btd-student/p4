@@ -1,0 +1,11 @@
+
+
+.header {
+   background: linear-gradient(132deg, rgb(251, 165, 116) 0.00%, rgb(216, 245, 251) 100.00%);
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+   border-bottom: 1px solid #e0e0e0;
+   box-shadow: 0 4px 8px 0 rgba(10, 10, 10, 0.1);
+}

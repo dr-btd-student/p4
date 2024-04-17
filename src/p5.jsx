@@ -10,18 +10,18 @@ ReactDOM.createRoot(document.getElementById("p5")).render(
 	<React.StrictMode>
       <BrowserRouter>
          <Header />
-            <div className='container menuContainer'>
-               <div className='menu menuItem'>
-                  <Link to='/example' className="menuText">Example</Link>
-               </div>
-               <div className='menu menuItem'>
-                  <Link to='/states' className="menuText">States</Link>
-               </div>
+         <div className='container menuContainer'>
+            <div className='menu menuItem'>
+               <Link to='/example' className="menuText">Example</Link>
             </div>
-            <Routes>
-               <Route path='/states' element={<States />} />
-               <Route path='/example' element={<Example />} />
-            </Routes>
+            <div className='menu menuItem'>
+               <Link to='/states' className="menuText">States</Link>
+            </div>
+         </div>
+         <Routes>
+            <Route path='/states' element={<States />} />
+            <Route path='/example' element={<Example />} />
+         </Routes>
       </BrowserRouter>
 	</React.StrictMode>
 );
